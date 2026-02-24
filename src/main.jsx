@@ -2,15 +2,13 @@ import ReactDOM from "react-dom/client";
 import App from "./App.jsx";
 import "./index.css";
 import { BrowserRouter } from "react-router-dom";
-import { MenuProvider } from "./context/menuContext";
-import { CartProvider } from "./context/cartContext";
+import { Provider } from "react-redux";
+import { store } from "./redux/redux.js";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <BrowserRouter>
-    <MenuProvider>
-      <CartProvider>
-        <App />
-      </CartProvider>
-    </MenuProvider>
+    <Provider store={store}>
+      <App />
+    </Provider>
   </BrowserRouter>
 );
